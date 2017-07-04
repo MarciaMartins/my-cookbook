@@ -1,0 +1,14 @@
+<h1>Editar Cozinha </h1>
+<%= form_for @cuisine do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'Cozinha' %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <%= f.submit 'Salvar', class: 'btn btn-primary btn-lg' %>
+<% end %>
+
+<% if @cuisine.errors.any? %>
+  <% @cuisine.errors.full_messages.each do |msg| %>
+  <%= msg %>
+  <% end %>
+<% end %>
