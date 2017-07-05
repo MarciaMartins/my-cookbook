@@ -21,7 +21,7 @@
               <% if user_signed_in?%>
                 <h1>Ola <%= current_user.email%></h1>
                 <%= link_to 'Sair', destroy_user_session_path, method: :delete  %>
-
+                <%= link_to 'Minhas Receitas', my_recipes_path  %>
               <% else%>
                 <%= link_to 'Login', new_user_session_path%>
               <% end %>

@@ -7,8 +7,17 @@ feature 'Visitor register recipe' do
     RecipeType.create(name: 'Entrada')
     RecipeType.create(name: 'Prato Principal')
     RecipeType.create(name: 'Sobremesa')
+    user = User.create(email: 'banana@com.br', password: '123123')
+
+
     # simula a ação do usuário
     visit root_path
+    click_on 'Login'
+    fill_in('Email', with: 'banana@com.br')
+    fill_in('Senha', with: '123123')
+    click_on 'Enviar'
+
+
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: 'Tabule'

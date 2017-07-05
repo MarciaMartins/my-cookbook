@@ -10,11 +10,14 @@ feature 'User update recipe' do
     main_type = RecipeType.create(name: 'Prato Principal')
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
+    user = User.create(email: 'banana@com.br', password: '123123')
+
     recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
                           cuisine: arabian_cuisine, difficulty: 'Médio',
                           cook_time: 50,
                           ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                          user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -50,11 +53,13 @@ feature 'User update recipe' do
     main_type = RecipeType.create(name: 'Prato Principal')
     dessert_type = RecipeType.create(name: 'Sobremesa')
 
+    user = User.create(email: 'banana@com.br', password: '123123')
     recipe = Recipe.create(title: 'Bolodecenoura', recipe_type: main_type,
                           cuisine: arabian_cuisine, difficulty: 'Médio',
                           cook_time: 50,
                           ingredients: 'Farinha, açucar, cenoura',
-                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                          method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                          user: user)
 
     # simula a ação do usuário
     visit root_path

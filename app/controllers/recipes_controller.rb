@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
     if @recipe.save
       redirect_to @recipe
     else
@@ -46,6 +47,10 @@ class RecipesController < ApplicationController
   def search
     @search_term = params[:search]
     @recipes = Recipe.where(title: @search_term)
+  end
+
+  def user_recipes
+    @recipes = Recipe.where(user: current_user.id)
   end
 
   private

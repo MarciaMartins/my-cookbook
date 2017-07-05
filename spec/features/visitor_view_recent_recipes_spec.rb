@@ -9,11 +9,14 @@ feature 'Visitor view only recent recipes on home page' do
 
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
+    user = User.create(email: 'banana@com.br', password: '123123')
+
     recent_recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio',
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
                           method: 'Misturar tudo, bater e assar',
-                          cook_time: 60)
+                          cook_time: 60,
+                          user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -34,11 +37,15 @@ feature 'Visitor view only recent recipes on home page' do
 
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe_type = RecipeType.create(name: 'Sobremesa')
+
+    user = User.create(email: 'banana@com.br', password: '123123')
+
     recent_recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio',
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
                           method: 'Misturar tudo, bater e assar',
-                          cook_time: 60)
+                          cook_time: 60,
+                          user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -63,11 +70,13 @@ feature 'Visitor view only recent recipes on home page' do
   def create_recipe(recipe_name)
     generic_cuisine = Cuisine.create(name: 'Generic Cuisine')
     generic_type = RecipeType.create(name: 'Generic Recipe Type')
+    user = User.create(email: 'banana2@com.br', password: '123123')
     Recipe.create(title: recipe_name, recipe_type: generic_type,
                   cuisine: generic_cuisine, difficulty: 'Facil',
                   ingredients: 'Ingredientes em lista',
                   method: 'Passo a passo do preparo',
-                  cook_time: 60)
+                  cook_time: 60,
+                  user: user)
 
   end
 
