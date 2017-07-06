@@ -8,6 +8,15 @@
 <p><%= @recipe.ingredients %></p>
 <h3>Como Preparar</h3>
 <p><%= @recipe.method %></p>
-
+<%if current_user == @recipe.user %>
 <%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-primary' %>
+<%end%>
+<%if current_user%>
+<%if current_user.favorited_recipes.include? @recipe %>
+<%= link_to 'Desfavoritar', favorite_recipe_path, class: 'btn btn-default', method: :post %>
+<%else%>
+<%= link_to 'Favoritar', favorite_recipe_path, class: 'btn btn-default', method: :post %>
+<%end%>
+<%end%>
+
 <%= link_to 'Voltar', root_path, class: 'btn btn-default' %>
